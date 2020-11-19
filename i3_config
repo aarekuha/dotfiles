@@ -241,6 +241,7 @@ bindsym $mod+shift+x exec --no-startup-id slimlock
 # }
 
 for_window [class="Qalculate-gtk"] floating enable resize set 600 400
+for_window [class="TelegramDesktop"] floating enable
 bindsym Scroll_Lock scratchpad show
 bindsym $mod+Scroll_Lock move scratchpad
 
