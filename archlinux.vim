@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'  " Асинхронные линтеры
   Plug 'turbio/bracey.vim'  " Live-preview html
   Plug 'ryanoasis/vim-devicons'  " Иконки (nerd-tree, status-bar)
-  Plug 'mattn/emmet-vim'
+  " Plug 'mattn/emmet-vim'
   Plug 'davidhalter/jedi-vim'  " Python автодополнение, навигация и т.п.
   Plug 'mg979/vim-visual-multi'
   Plug 'iamcco/markdown-preview.vim'
@@ -56,6 +56,7 @@ set list  " Отображение спецюсимволов
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·  " Спец.символы
 set selection=exclusive  " Убирает выделение символа конца строки
 set omnifunc=ale#completion#OmniFunc
+set fileencodings=utf-8,cp1251,koi8-r,latin1
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -105,6 +106,8 @@ let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
 let g:lazygit_use_neovim_remote = 1 " for neovim-remote support
 
+" set fileencodings = 'utf-8', 'cp1251', 'koi8-r', 'latin1'
+
 
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<A-n>'   " replace C-n
@@ -113,10 +116,10 @@ let g:VM_maps["Undo"] = 'u'
 let g:VM_maps["Redo"] = '<C-r>'
 let g:VM_mouse_mappings = 1
 
-let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key=''
-autocmd FileType html,css EmmetInstall
-imap <expr> <C-e> emmet#expandAbbrIntelligent("\<C-e>")
+" let g:user_emmet_install_global = 0
+" let g:user_emmet_leader_key=''
+" autocmd FileType html,css EmmetInstall
+" imap <expr> <C-e> emmet#expandAbbrIntelligent("\<C-e>")
 
 " Прочее
 let g:session_dir = '~/.vim/sessions'
@@ -125,7 +128,7 @@ let mapleader = ','
 
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
+
 " Сохранение файла
 nmap <C-s> :update<CR>
 
