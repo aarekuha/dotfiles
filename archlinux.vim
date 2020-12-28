@@ -60,6 +60,8 @@ set fileencodings=utf-8,cp1251,koi8-r,latin1
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+au BufRead /tmp/psql.edit.* set syntax=sql
+
 " NerdTree - Навигация по файлам
 let g:NERDSpaceDelims = 1
 let g:NERDTreeQuitOnOpen=1
@@ -79,6 +81,7 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "1"
 
 " Ale - асинхронная проверка линтерами и коррекция
 let g:ale_python_flake8_auto_pipenv = 1
@@ -172,8 +175,6 @@ nnoremap л gk
 nnoremap <C-l> $
 nnoremap <C-h> ^
 nnoremap gn :tabnew<CR>
-" Смещение текущей строки ниже
-nnoremap <CR> O<Esc>
 " Завершение работы (закрытие всех откртых окон)
 nnoremap <C-q><C-q> :qall!<CR>
 nnoremap <C-q><C-w> :wqall!<CR>
