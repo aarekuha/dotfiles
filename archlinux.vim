@@ -152,8 +152,8 @@ noremap <leader><F8> <ESC>:g/^\s*__import__('pdb').set_trace()/d<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <Space> <Plug>(easymotion-s2)
-nmap <F1> :bp<CR>
-nmap <F2> :bn<CR>
+nmap <F1> :bp!<CR>
+nmap <F2> :bn!<CR>
 
 nnoremap <M-k> <C-u>
 nnoremap <M-j> <C-d>
