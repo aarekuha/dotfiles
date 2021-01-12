@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mg979/vim-visual-multi'
   Plug 'iamcco/markdown-preview.vim'
   Plug 'kdheepak/lazygit.nvim'
+  Plug 'lifepillar/pgsql.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -57,6 +58,7 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·  " Спец.с�
 set selection=exclusive  " Убирает выделение символа конца строки
 set omnifunc=ale#completion#OmniFunc
 set fileencodings=utf-8,cp1251,koi8-r,latin1
+set inccommand=nosplit
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -64,11 +66,11 @@ au BufRead /tmp/psql.edit.* set syntax=sql
 
 " NerdTree - Навигация по файлам
 let g:NERDSpaceDelims = 1
-let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeIgnore = ['\.pyc$', '\.retry$']
 let g:NERDSpaceDelims = 1
-let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowBookmarks = 1
 
 " Jedi - автодополнение и навигация по коду
@@ -246,6 +248,11 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+let g:sql_type_default = 'pgsql'
+" let g:pgsql_pl = ['python']
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Удаление пробелов в конце строк
