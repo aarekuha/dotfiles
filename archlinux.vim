@@ -16,12 +16,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'  " Асинхронные линтеры
   Plug 'turbio/bracey.vim'  " Live-preview html
   Plug 'ryanoasis/vim-devicons'  " Иконки (nerd-tree, status-bar)
-  " Plug 'mattn/emmet-vim'
   Plug 'davidhalter/jedi-vim'  " Python автодополнение, навигация и т.п.
-  Plug 'mg979/vim-visual-multi'
-  Plug 'iamcco/markdown-preview.vim'
+  Plug 'mg979/vim-visual-multi'  " Мультикурсоры
+  Plug 'iamcco/markdown-preview.vim'  " Live-preview MD markdown
   Plug 'kdheepak/lazygit.nvim'
-  Plug 'lifepillar/pgsql.vim'
+  Plug 'lifepillar/pgsql.vim'  " Подсветка postgres-синтаксиса
+  Plug 'tpope/vim-dadbod'  " Подключение к БД и выполнение запросов
+  Plug 'SirVer/ultisnips'  " Сниппеты
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -58,7 +59,7 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·  " Спец.с�
 set selection=exclusive  " Убирает выделение символа конца строки
 set omnifunc=ale#completion#OmniFunc
 set fileencodings=utf-8,cp1251,koi8-r,latin1
-set inccommand=nosplit
+set inccommand=split
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -111,8 +112,11 @@ let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
 let g:lazygit_use_neovim_remote = 1 " for neovim-remote support
 
-" set fileencodings = 'utf-8', 'cp1251', 'koi8-r', 'latin1'
-
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsEditSplit="vertical"
 
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<A-n>'   " replace C-n
@@ -121,16 +125,10 @@ let g:VM_maps["Undo"] = 'u'
 let g:VM_maps["Redo"] = '<C-r>'
 let g:VM_mouse_mappings = 1
 
-" let g:user_emmet_install_global = 0
-" let g:user_emmet_leader_key=''
-" autocmd FileType html,css EmmetInstall
-" imap <expr> <C-e> emmet#expandAbbrIntelligent("\<C-e>")
-
 " Прочее
 let g:session_dir = '~/.vim/sessions'
 let g:EasyMotion_smartcase = 1
 let mapleader = ','
-
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -282,3 +280,67 @@ endfunction
 call timer_start(500, 'ChangeHilights', {'repeat':-1})
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"" vim-dadbod
+func! DBExe(...)
+    if !a:0
+        let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+        return 'g@'
+    endif
+    let sel_save = &selection
+    let &selection = "inclusive"
+    let reg_save = @@
+
+    if a:1 == 'char'
+        silent exe 'normal! gvy'
+    elseif a:1 == 'line'
+        silent exe "normal! '[V']y"
+    else
+        silent exe 'normal! `[v`]y'
+    endif
+
+    execute "DB " . @@
+
+    let &selection = sel_save
+    let @@ = reg_save
+endfunc
+
+xnoremap <expr> <Plug>(DBExe)     DBExe()
+nnoremap <expr> <Plug>(DBExe)     DBExe()
+nnoremap <expr> <Plug>(DBExeLine) DBExe() . '_'
+
+xmap <leader>db  <Plug>(DBExe)
+nmap <leader>db  <Plug>(DBExe)
+omap <leader>db  <Plug>(DBExe)
+nmap <leader>dbb <Plug>(DBExeLine)
+
+let dadbods = [
+    \{
+        \"name": "Enforta edp.testing.bss.loc",
+        \"url": "postgresql://postgres:@edptesting.bss.loc/enforta"
+    \},
+\]
+
+function! ExecuteSQL()
+    let g:sqlquery = @q
+    if g:sqlquery == ""
+        echo "The register q doesnot have query"
+        return 0
+    endif
+    call writefile(split(g:sqlquery, "\n"), '/tmp/mybuff.sql')
+
+    if exists("g:my_run_buffer")
+        set swb=usetab
+        exec ":rightbelow sbuf " . g:my_run_buffer
+    else
+        bo new
+        set buftype=nofile
+        let g:my_run_buffer = bufnr("%")
+        let g:mydb = ""
+        let g:mydbserver = ""
+    endif
+    " let mycommand = '%!sqlcmd -S' . g:mydbserver . ' -d' . g:mydb . ' -i "/tmp/mybuff.sql"'
+    let mycommand = '%!PGPASSWORD=secret psql -U mdb -h edp.testing.bss.loc -c "' . g:sqlquery . '"'
+
+    exec mycommand
+endfunction

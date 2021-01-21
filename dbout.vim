@@ -5,6 +5,7 @@
 source ~/.config/backup/archlinux.vim
 set nowrap
 set scrollopt=hor
+set syntax=sql
 
 syn region Heading start=/^ \l/ end=/[-+]\+$/
 syn match Border "|"
@@ -14,9 +15,10 @@ syn match NegVal " -\d\+\(\n\| \)"
 syn match FloatVal " \d\+\.\d\+\(\n\| \)"
 syn match NegFloatVal " -\d\+\.\d\+\(\\n\| \)"
 syn match DateTime "\d\{4}-\d\{2}-\d\{2} \d\{2}:\d\{2}:\d\{2}\(\.\d\{1,}\|\)"
-syn match Time "\d\{2}:\d\{2}:\d\{2}"
+syn match Time "\d\{2}:\d\{2}:\d\{2}[.\d]*"
 syn match TrueVal " t\(\n\| \)"
 syn match FalseVal " f\(\n\| \)"
+syn match ActiveSession " | active"
 
 hi def Heading ctermfg=246
 hi def IntVal ctermfg=229
@@ -29,5 +31,7 @@ hi def NegVal ctermfg=160
 hi def DateTime ctermfg=111
 hi def Time ctermfg=112
 hi def TrueVal ctermfg=64
+hi def ActiveSession ctermfg=131
 
+" Convert to csv
 nmap <F8> :silent! %s/"/\\"/g<CR>:%s/^\-\-\-.*$//g<CR>:%s/^(\d.*//g<CR>:%s/\s\+\|\s/";"/g<CR>:g/^$/d<CR>:%s/^\s*/"/g<CR>:%s/\s*$/"/g<CR>:silent! %s/"\s\+/\"/g<CR>
