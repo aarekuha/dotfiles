@@ -318,11 +318,10 @@ nmap <leader>dbb <Plug>(DBExeLine)
 source ./dadbods.vim
 " let dadbods = [
     " \{
-        " \"name": "PG: MDB (PROD), sender.cc-perm.bss.loc:5432/mdb (admin)",
-        " \"url": "postgresql://admin:P%40s3W0rD@sender.cc-perm.bss.loc:5432/mdb"
+        " \"name": "PG: MDB (PROD), sender.cc-perm.bss.loc:5432/mdb (username)",
+        " \"url": "postgresql://username:password@sender.cc-perm.bss.loc:5432/mdb"
     " \},
 " \]
-       "oracle://rekukha_aa:iuZdvIeTjZRf@db1.enforta.ertelecom.ru:1521/billing.enforta.ertelecom.ru"
 
 function! My_callback_str(val) abort
     for element in g:dadbods
