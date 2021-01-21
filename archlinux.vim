@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'lifepillar/pgsql.vim'  " Подсветка postgres-синтаксиса
   Plug 'tpope/vim-dadbod'  " Подключение к БД и выполнение запросов
   Plug 'SirVer/ultisnips'  " Сниппеты
+  Plug 'kamykn/popup-menu.nvim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -314,33 +315,23 @@ nmap <leader>db  <Plug>(DBExe)
 omap <leader>db  <Plug>(DBExe)
 nmap <leader>dbb <Plug>(DBExeLine)
 
-let dadbods = [
-    \{
-        \"name": "Enforta edp.testing.bss.loc",
-        \"url": "postgresql://postgres:@edptesting.bss.loc/enforta"
-    \},
-\]
+source ./dadbods.vim
+" let dadbods = [
+    " \{
+        " \"name": "PG: MDB (PROD), sender.cc-perm.bss.loc:5432/mdb (admin)",
+        " \"url": "postgresql://admin:P%40s3W0rD@sender.cc-perm.bss.loc:5432/mdb"
+    " \},
+" \]
+       "oracle://rekukha_aa:iuZdvIeTjZRf@db1.enforta.ertelecom.ru:1521/billing.enforta.ertelecom.ru"
 
-function! ExecuteSQL()
-    let g:sqlquery = @q
-    if g:sqlquery == ""
-        echo "The register q doesnot have query"
-        return 0
-    endif
-    call writefile(split(g:sqlquery, "\n"), '/tmp/mybuff.sql')
-
-    if exists("g:my_run_buffer")
-        set swb=usetab
-        exec ":rightbelow sbuf " . g:my_run_buffer
-    else
-        bo new
-        set buftype=nofile
-        let g:my_run_buffer = bufnr("%")
-        let g:mydb = ""
-        let g:mydbserver = ""
-    endif
-    " let mycommand = '%!sqlcmd -S' . g:mydbserver . ' -d' . g:mydb . ' -i "/tmp/mybuff.sql"'
-    let mycommand = '%!PGPASSWORD=secret psql -U mdb -h edp.testing.bss.loc -c "' . g:sqlquery . '"'
-
-    exec mycommand
+function! My_callback_str(val) abort
+    for element in g:dadbods
+        if element.name == a:val
+            let g:db=element.url
+        endif
+    endfor
 endfunction
+
+let Callback_fn = {v -> My_callback_str(v)}
+nmap <F12> :call popup_menu#open(map(copy(g:dadbods), {k,v -> v.name}), Callback_fn)<CR>
+
