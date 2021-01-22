@@ -315,7 +315,7 @@ nmap <leader>db  <Plug>(DBExe)
 omap <leader>db  <Plug>(DBExe)
 nmap <leader>dbb <Plug>(DBExeLine)
 
-source ./dadbods.vim
+source ~/.config/backup/dadbods.vim
 " let dadbods = [
     " \{
         " \"name": "PG: MDB (PROD), sender.cc-perm.bss.loc:5432/mdb (username)",
