@@ -1,3 +1,4 @@
+set clipboard^=unnamed
 let mapleader=","
 
 set easymotion
