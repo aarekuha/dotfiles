@@ -14,7 +14,7 @@ set inccommand=nosplit
 
 nmap <space> <Plug>(easymotion-s2)
 nmap <C-s> :w<CR>
-nmap <C-w> :tabclose<CR>
+nmap <C-w><C-w> :tabclose<CR>
 nmap <C-f> :find<CR>
 nmap <A-j> <C-d>
 nmap <A-k> <C-u>
@@ -30,5 +30,5 @@ noremap <C-k> :m .-2<CR>
 noremap <C-j> :m .+1<CR>
 
 noremap x "_x
-noremap p "_dP
+vnoremap p "_dP
 
