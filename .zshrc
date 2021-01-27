@@ -6,6 +6,9 @@ export NNN_BMS='d:~/Downloads;p:~/projects'
 export NNN_OPENER=xdg-open
 export NNN_PLUG='d:diffs;f:fzcd;z:fzz;]:dragdrop'
 
+export SQLPATH=$ORACLE_HOME/sqlplus/admin
+export NLS_LANG=RUSSIAN_RUSSIA.CL8MSWIN1251
+
 ZSH_THEME="amuse"
 plugins=(colored-man-pages git docker composer npm timer zsh_reload wd colorize fzf)
 
