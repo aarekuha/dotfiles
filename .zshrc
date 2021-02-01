@@ -7,7 +7,8 @@ export NNN_OPENER=xdg-open
 export NNN_PLUG='d:diffs;f:fzcd;z:fzz;]:dragdrop'
 
 export SQLPATH=$ORACLE_HOME/sqlplus/admin
-export NLS_LANG=RUSSIAN_RUSSIA.CL8MSWIN1251
+# export NLS_LANG=RUSSIAN_RUSSIA.CL8MSWIN1251
+export NLS_LANG=RUSSIAN_CIS.AL32UTF8
 
 ZSH_THEME="amuse"
 plugins=(colored-man-pages git docker composer npm timer zsh_reload wd colorize fzf)
@@ -65,7 +66,7 @@ alias mc='mc -S dark'
 alias v='nvim'
 alias vim='nvim'
 alias sql='cd ~/.sqlplus && rlwrap sqlplus'
-alias sqlplus='rlwrap sqlplus'
+alias sqlplus='rlwrap sqlplus /usr/sqlplus/admin/glogin.sql'
 alias sqlcl='/opt/sqlcl/bin/sql'
 alias act='source ./venv/bin/activate && PYTHONPATH=$PWD/venv/lib/python3.5/site-packages:$PWD'
 alias nvimdiff='nvim -d'
