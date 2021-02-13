@@ -315,7 +315,7 @@ nmap <leader>db  <Plug>(DBExe)
 omap <leader>db  <Plug>(DBExe)
 nmap <leader>dbb <Plug>(DBExeLine)
 
-source ~/.config/backup/dadbods.vim
+"source ~/.config/backup/dadbods.vim
 " let dadbods = [
     " \{
         " \"name": "PG: MDB (PROD), sender.cc-perm.bss.loc:5432/mdb (username)",
@@ -323,14 +323,14 @@ source ~/.config/backup/dadbods.vim
     " \},
 " \]
 
-function! My_callback_str(val) abort
-    for element in g:dadbods
-        if element.name == a:val
-            let g:db=element.url
-        endif
-    endfor
-endfunction
-
-let Callback_fn = {v -> My_callback_str(v)}
-nmap <F12> :call popup_menu#open(map(copy(g:dadbods), {k,v -> v.name}), Callback_fn)<CR>
+"function! My_callback_str(val) abort
+"    for element in g:dadbods
+"        if element.name == a:val
+"            let g:db=element.url
+"        endif
+"    endfor
+"endfunction
+"
+"let Callback_fn = {v -> My_callback_str(v)}
+"nmap <F12> :call popup_menu#open(map(copy(g:dadbods), {k,v -> v.name}), Callback_fn)<CR>
 

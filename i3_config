@@ -27,7 +27,7 @@ focus_on_window_activation focus
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -f -c 000022
-exec --no-startup-id feh --bg-scale /home/alex/pictures/wallpaper.jpg
+exec --no-startup-id feh --bg-scale /home/alex/pictures/wallpapers/skamath-HD-Wallpapers1.jpg
 exec --no-startup-id set -g default-terminal "screen-256color"
 exec --no-startup-id xset -b
 
@@ -37,7 +37,7 @@ exec --no-startup-id udiskie
 exec --no-startup-id pasystray
 exec --no-startup-id nm-applet
 exec_always --no-startup-id $HOME/launch_polybar.sh
-exec --no-startup-id nmapplet
+exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
@@ -65,9 +65,11 @@ exec --no-startup-id synclient MaxSpeed=3
 exec --no-startup-id udiskie -t
 
 # Print screen
-bindsym --release Print exec "scrot -m '/home/alex/pictures/%s_%H%M_%d.%m.%Y_$wx$h.png' -e 'xclip -sel clip -t image/png -i $f'"
+#bindsym --release Print exec "scrot -m '/home/alex/pictures/%s_%H%M_%d.%m.%Y_$wx$h.png' -e 'xclip -sel clip -t image/png -i $f'"
 bindsym --release Shift+Print exec "scrot -s '/home/alex/pictures/%s_%H%M_%d%m%Y_$wx$h.png' -e 'xclip -sel clip -t image/png -i $f'"
 bindsym --release $mod+Shift+Print exec "scrot -u -d 4 '/home/alex/pictures/%s_%H%M_%d%m%Y_$wx$h.png' -e 'xclip -sel clip -t image/png -i $f'"
+
+bindsym --release Control+Escape exec "mate-system-monitor"
 #
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -241,9 +243,10 @@ bindsym $mod+shift+x exec --no-startup-id slimlock
 # }
 
 for_window [class="Qalculate-gtk"] floating enable resize set 600 400
-for_window [class="TelegramDesktop"] floating enable
-bindsym Scroll_Lock scratchpad show
-bindsym $mod+Scroll_Lock move scratchpad
+for_window [class="TelegramDesktop"] floating enable resize set 1600 800
+for_window [class="Mate-system-monitor"] floating enable resize set 1600 800
+bindsym Print scratchpad show
+bindsym $mod+Print move scratchpad
 
 bindsym $mod+p move workspace to output left
 bindsym $mod+m mode "move" focus floating
