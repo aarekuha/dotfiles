@@ -2,7 +2,7 @@ set clipboard^=unnamed
 let mapleader=","
 
 set easymotion
-let g:EasyMotion_keys='hklyuiopnm,qwertzxcvbasdgjf;'
+let g:EasyMotion_keys='ghfjdkslaytruvbn'
 let g:EasyMotion_smartcase = 1
 
 set showmode
