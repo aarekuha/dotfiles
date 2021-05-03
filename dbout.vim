@@ -35,3 +35,5 @@ hi def ActiveSession ctermfg=131
 
 " Convert to csv
 nmap <F8> :silent! %s/"/\\"/g<CR>:%s/^\-\-\-.*$//g<CR>:%s/^(\d.*//g<CR>:%s/\s\+\|\s/";"/g<CR>:g/^$/d<CR>:%s/^\s*/"/g<CR>:%s/\s*$/"/g<CR>:silent! %s/"\s\+/\"/g<CR>
+
+nmap <F12> :set scrollopt=hor<CR>:2split<CR><C-w><C-j>:windo set scrollbind<CR>

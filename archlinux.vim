@@ -24,6 +24,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-dadbod'  " Подключение к БД и выполнение запросов
   Plug 'SirVer/ultisnips'  " Сниппеты
   Plug 'kamykn/popup-menu.nvim'
+  Plug 'puremourning/vimspector'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'PhilRunninger/nerdtree-buffer-ops'
+  " Plug 'prabirshrestha/vim-lsp'
+  " Plug 'mattn/vim-lsp-settings'
+  Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -333,4 +339,51 @@ nmap <leader>dbb <Plug>(DBExeLine)
 "
 "let Callback_fn = {v -> My_callback_str(v)}
 "nmap <F12> :call popup_menu#open(map(copy(g:dadbods), {k,v -> v.name}), Callback_fn)<CR>
+
+
+let g:vimspector_enable_mappings = 'HUMAN'
+
+let g:NERDTreeGitStatusShowIgnored = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+nmap <C-m> :Vista!!<CR>
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+" if executable('pyls')
+    " " pip install python-language-server
+    " au User lsp_setup call lsp#register_server({
+        " \ 'name': 'pyls',
+        " \ 'cmd': {server_info->['pyls']},
+        " \ 'allowlist': ['python'],
+        " \ })
+" endif
+
+" augroup lsp_install
+    " au!
+    " " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    " autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+" augroup END
 
