@@ -12,7 +12,7 @@ connection_settings = {
 pg_conn = psycopg2.connect(**connection_settings)
 pg_cursor = pg_conn.cursor(cursor_factory=NamedTupleCursor)
 
-pg_cursor.execute('select * from databases')
+pg_cursor.execute('select * from databases where id != 2')
 for pg_row in pg_cursor.fetchall():
     print(pg_row)
     dsn_tns = cx_Oracle.makedsn(pg_row.host, pg_row.port, service_name=pg_row.service_name)
