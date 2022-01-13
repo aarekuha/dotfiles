@@ -1,0 +1,23 @@
+{
+  "configurations": {
+    "Python": {
+      "adapter": "debugpy",
+      "configuration": {
+        "python": "./venv/bin/python",
+        "request": "launch",
+        "program": "main.py",
+        "stopOnEntry": false,
+        "cwd": "${workspaceRoot}",
+        "showReturnValue": true
+      }
+    },
+    "Python Attach": {
+      "adapter": "multi-session",
+      "configuration": {
+        "request": "attach",
+        "port": 5678,
+        "host": "localhost"
+      }
+    }
+  }
+}
