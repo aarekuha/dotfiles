@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'  " Асинхронные линтеры
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'davidhalter/jedi-vim'  " Python автодополнение, навигация и т.п.
+  Plug 'puremourning/vimspector'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Цветовое оформлени" Цветовое оформление
@@ -50,7 +51,7 @@ set selection=exclusive  " Убирает выделение символа ко
 set fileencodings=utf-8,cp1251,koi8-r,latin1
 set inccommand=split
 set omnifunc=ale#completion#OmniFunc
-" set autochdir  " Смена текущей директории на открытый файл
+set autochdir  " Смена текущей директории на открытый файл
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufRead /tmp/psql.edit.* set syntax=sql
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,12 +80,10 @@ noremap <silent> <leader>j <Plug>(ale_next_wrap)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree - Навигация по файлам
 let g:NERDSpaceDelims = 1
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeIgnore = ['\.pyc$', '\.retry$']
-let g:NERDSpaceDelims = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeShowHidden = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -213,3 +212,6 @@ endfunction
 
 call timer_start(500, 'ChangeHilights', {'repeat':-1})
 
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <F3> :VimspectorReset<CR>

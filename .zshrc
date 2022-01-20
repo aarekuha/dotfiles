@@ -2,16 +2,16 @@ export PATH=$PATH:/snap/bin:/home/rekuha/programs/dotnet:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 
-export NNN_BMS='d:~/Downloads;p:~/projects'
+export NNN_BMS='d:~/Downloads;p:~/projects;i:~/IdeaProjects;'
 export NNN_OPENER=xdg-open
-export NNN_PLUG='d:diffs;f:fzcd;z:fzz;]:dragdrop'
+export NNN_PLUG='d:diffs;f:fzcd;z:fzz;]:dragdrop;p:preview-tui'
 
 export SQLPATH=$ORACLE_HOME/sqlplus/admin
 # export NLS_LANG=RUSSIAN_RUSSIA.CL8MSWIN1251
 export NLS_LANG=RUSSIAN_CIS.AL32UTF8
 
 ZSH_THEME="amuse"
-plugins=(colored-man-pages git docker composer npm timer zsh_reload wd colorize fzf)
+plugins=(colored-man-pages git docker composer npm timer wd colorize fzf kubectl)
 
 source $ZSH/oh-my-zsh.sh
 zstyle ':completion:*' menu select
@@ -66,7 +66,7 @@ alias mc='mc -S dark'
 alias v='nvim'
 alias vim='nvim'
 alias sql='cd ~/.sqlplus && rlwrap sqlplus'
-alias sqlplus='rlwrap sqlplus /usr/sqlplus/admin/glogin.sql'
+alias sqlplus='rlwrap sqlplus'
 alias sqlcl='/opt/sqlcl/bin/sql'
 alias act='source ./venv/bin/activate && PYTHONPATH=$PWD/venv/lib/python3.5/site-packages:$PWD'
 alias nvimdiff='nvim -d'
@@ -81,8 +81,13 @@ alias odi='cd /home/alex/oracle/product/11.1.1/Oracle_ODI_1/oracledi/client && .
 alias wping='~/wping.sh'
 alias nnn='nnn -deH'
 alias psql="PAGER='nvim -u ~/.config/backup/dbout.vim' psql"
-# alias nnn='nnn -deHx'
-# alias history='fc -li | grep $(date -I)'
+alias token="python ~/projects/get_access_token/main_staging.py | xclip -sel clip"
+alias tokenprod="python ~/projects/get_access_token/main_prod.py | xclip -sel clip"
+alias lsimg="~/.config/backup/fzfimg.sh"
+alias git="LESSCHARSET=UTF-8 git"
+
+alias cc1_mediator_logs="kubectl --context cc1_voronezsh logs --tail 500 -f $(kubectl --context cc1_voronezsh get pods | grep fiasmediator | awk '{print $1}')"
+alias cc3_mediator_logs="kubectl --context cc3_perm logs --tail 500 -f $(kubectl --context cc3_perm get pods | grep fiasmediator | awk '{print $1}')"
 
 # ########### ####### ###### ### #########
 compinit
@@ -90,7 +95,8 @@ _comp_options+=(globdots)
 
 # PROMPT='asdas'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+#export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='~/.config/backup/fzfimg.sh '
 
 
 

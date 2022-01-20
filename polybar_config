@@ -60,7 +60,8 @@ font-2 = Wuncon Siji:pixelsize=10;3
 
 modules-left = i3 xwindow
 modules-center = date
-modules-right = crypto filesystem pulseaudio xkeyboard memory cpu eth temperature powermenu
+; modules-right = crypto filesystem pulseaudio xkeyboard memory cpu eth temperature powermenu
+modules-right = filesystem pulseaudio xkeyboard memory cpu eth temperature powermenu
 
 tray-position = right
 ; tray-detached = true

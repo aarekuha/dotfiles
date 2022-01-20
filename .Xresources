@@ -1,7 +1,8 @@
 !!!!!!
 *VT100.allowWindowOps: true
 XTerm.termName: xterm-256color
-XTerm*faceName: DejaVu Sans Mono
+! XTerm*faceName: DejaVu Sans Mono
+XTerm*faceName:
 XTerm*faceSize: 10
 !! VT Font Menu: Unreadable
 xterm*faceSize1: 8
@@ -159,3 +160,4 @@ XTerm*utf8: 1
 *color14 : #93a1a1
 *color15 : #fdf6e3
 
+Xcursor.size: 10

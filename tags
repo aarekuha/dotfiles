@@ -1,0 +1,115 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/alex/.config/backup/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
+<C-f>	archlinux.vim	/^nnoremap <C-f> :Ag<CR>$/;"	m
+<C-n>	archlinux.vim	/^map <C-n> :NERDTreeToggle<CR>$/;"	m
+<C-p>	archlinux.vim	/^nnoremap <C-p> :Files<CR>$/;"	m
+<C-q><C-q>	archlinux.vim	/^nnoremap <C-q><C-q> :qall!<CR>$/;"	m
+<C-q><C-w>	archlinux.vim	/^nnoremap <C-q><C-w> :wqall!<CR>$/;"	m
+<C-s>	archlinux.vim	/^imap <C-s> <ESC>:w<CR>$/;"	m
+<C-s>	archlinux.vim	/^nmap <C-s> :update<CR>$/;"	m
+<C-w><C-w>	archlinux.vim	/^nnoremap <C-w><C-w> :bp<bar>sp<bar>bn<bar>bd<CR>$/;"	m
+<F12>	dbout.vim	/^nmap <F12> :set scrollopt=hor<CR>:2split<CR><C-w><C-j>:windo set scrollbind<CR>$/;"	m
+<F1>	archlinux.vim	/^nmap <F1> :bp!<CR>$/;"	m
+<F2>	archlinux.vim	/^nmap <F2> :bn!<CR>$/;"	m
+<F8>	dbout.vim	/^nmap <F8> :silent! %s\/"\/\\\\"\/g<CR>:%s\/^\\-\\-\\-.*$\/\/g<CR>:%s\/^(\\d.*\/\/g<CR>:%s\/\\s\\/;"	m
+<M-j>	archlinux.vim	/^nnoremap <M-j> <C-d>$/;"	m
+<M-k>	archlinux.vim	/^nnoremap <M-k> <C-u>$/;"	m
+<S-x>	archlinux.vim	/^nnoremap <S-x> "_d\$$/;"	m
+<Space>	archlinux.vim	/^nmap <Space> <Plug>(easymotion-s2)$/;"	m
+<leader>j	archlinux.vim	/^noremap <silent> <leader>j <Plug>(ale_next_wrap)$/;"	m
+<leader>k	archlinux.vim	/^noremap <silent> <leader>k <Plug>(ale_previous_wrap)$/;"	m
+ChangeHilights	archlinux.vim	/^function! ChangeHilights(timer)$/;"	f
+P	archlinux.vim	/^vnoremap P "_xp$/;"	m
+_	polybar_crypto.py	/^askBNB, _ = getPrice('BNBUSDT')$/;"	v
+_	polybar_crypto.py	/^askBTC, _ = getPrice('BTCUSDT')$/;"	v
+_	polybar_crypto.py	/^askETH, _ = getPrice('ETHUSDT')$/;"	v
+ale_linters#python#pylint3#GetCommand	pylint3.vim	/^function! ale_linters#python#pylint3#GetCommand(buffer) abort$/;"	f
+ale_linters#python#pylint3#GetExecutable	pylint3.vim	/^function! ale_linters#python#pylint3#GetExecutable(buffer) abort$/;"	f
+ale_linters#python#pylint3#Handle	pylint3.vim	/^function! ale_linters#python#pylint3#Handle(buffer, lines) abort$/;"	f
+askBNB	polybar_crypto.py	/^askBNB, _ = getPrice('BNBUSDT')$/;"	v
+askBTC	polybar_crypto.py	/^askBTC, _ = getPrice('BTCUSDT')$/;"	v
+askETH	polybar_crypto.py	/^askETH, _ = getPrice('ETHUSDT')$/;"	v
+b:ale_fixers	archlinux.vim	/^let b:ale_fixers = ['autopep8']$/;"	v
+dadbods	dadbods.vim	/^let dadbods = [$/;"	v
+g:EasyMotion_smartcase	archlinux.vim	/^let g:EasyMotion_smartcase = 1$/;"	v
+g:NERDSpaceDelims	archlinux.vim	/^let g:NERDSpaceDelims = 1$/;"	v
+g:NERDTreeDirArrowCollapsible	archlinux.vim	/^let g:NERDTreeDirArrowCollapsible = '▾'$/;"	v
+g:NERDTreeDirArrowExpandable	archlinux.vim	/^let g:NERDTreeDirArrowExpandable = '▸'$/;"	v
+g:NERDTreeGitStatusIndicatorMapCustom	archlinux.vim	/^let g:NERDTreeGitStatusIndicatorMapCustom = {$/;"	v
+g:NERDTreeGitStatusShowIgnored	archlinux.vim	/^let g:NERDTreeGitStatusShowIgnored = 1$/;"	v
+g:NERDTreeIgnore	archlinux.vim	/^let g:NERDTreeIgnore = ['\\.pyc$', '\\.retry$']$/;"	v
+g:NERDTreeQuitOnOpen	archlinux.vim	/^let g:NERDTreeQuitOnOpen = 1$/;"	v
+g:NERDTreeShowBookmarks	archlinux.vim	/^let g:NERDTreeShowBookmarks = 1$/;"	v
+g:UltiSnipsEditSplit	archlinux.vim	/^let g:UltiSnipsEditSplit="vertical"$/;"	v
+g:UltiSnipsExpandTrigger	archlinux.vim	/^let g:UltiSnipsExpandTrigger="<tab>"$/;"	v
+g:UltiSnipsJumpBackwardTrigger	archlinux.vim	/^let g:UltiSnipsJumpBackwardTrigger="<S-tab>"$/;"	v
+g:UltiSnipsJumpForwardTrigger	archlinux.vim	/^let g:UltiSnipsJumpForwardTrigger="<tab>"$/;"	v
+g:VM_maps	archlinux.vim	/^let g:VM_maps = {}$/;"	v
+g:VM_maps	archlinux.vim	/^let g:VM_maps["Redo"] = '<C-r>'$/;"	v
+g:VM_maps	archlinux.vim	/^let g:VM_maps["Undo"] = 'u'$/;"	v
+g:VM_maps	archlinux.vim	/^let g:VM_maps['Find Subword Under'] = '<A-n>'   " replace visual C-n$/;"	v
+g:VM_maps	archlinux.vim	/^let g:VM_maps['Find Under']         = '<A-n>'   " replace C-n$/;"	v
+g:VM_mouse_mappings	archlinux.vim	/^let g:VM_mouse_mappings = 1$/;"	v
+g:airline#extensions#ale#enabled	archlinux.vim	/^let g:airline#extensions#ale#enabled = 1$/;"	v
+g:airline#extensions#bookmark#enabled	archlinux.vim	/^let g:airline#extensions#bookmark#enabled = 1$/;"	v
+g:airline#extensions#branch#enabled	archlinux.vim	/^let g:airline#extensions#branch#enabled=1$/;"	v
+g:airline#extensions#bufferline#enabled	archlinux.vim	/^let g:airline#extensions#bufferline#enabled = 1$/;"	v
+g:airline#extensions#capslock#enabled	archlinux.vim	/^let g:airline#extensions#capslock#enabled = 1$/;"	v
+g:airline#extensions#cursormode#enabled	archlinux.vim	/^let g:airline#extensions#cursormode#enabled = 1$/;"	v
+g:airline#extensions#keymap#enabled	archlinux.vim	/^let g:airline#extensions#keymap#enabled = 1$/;"	v
+g:airline#extensions#virtualenv#enabled	archlinux.vim	/^let g:airline#extensions#virtualenv#enabled = 1$/;"	v
+g:airline#extensions#xkblayout#enabled	archlinux.vim	/^let g:airline#extensions#xkblayout#enabled = 1$/;"	v
+g:airline_extensions	archlinux.vim	/^let g:airline_extensions = ['branch', 'tabline', 'ale']$/;"	v
+g:airline_left_alt_sep	archlinux.vim	/^let g:airline_left_alt_sep = ''$/;"	v
+g:airline_left_sep	archlinux.vim	/^let g:airline_left_sep = ''$/;"	v
+g:airline_right_alt_sep	archlinux.vim	/^let g:airline_right_alt_sep = ''$/;"	v
+g:airline_right_sep	archlinux.vim	/^let g:airline_right_sep = ''$/;"	v
+g:airline_section_b	archlinux.vim	/^let g:airline_section_b = '   %{hostname} '$/;"	v
+g:airline_symbols	archlinux.vim	/^  let g:airline_symbols = {}$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.branch = ''$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.linenr = '☰'$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.linenr = ''$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.maxlinenr = ''$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.notexists = '∄'$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.paste = 'Þ'$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.paste = 'ρ'$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.readonly = ''$/;"	v
+g:airline_symbols	archlinux.vim	/^let g:airline_symbols.whitespace = 'Ξ'$/;"	v
+g:airline_theme	archlinux.vim	/^let g:airline_theme='dark'$/;"	v
+g:ale_completeon_enabled	archlinux.vim	/^let g:ale_completeon_enabled = 1$/;"	v
+g:ale_echo_msg_error_str	archlinux.vim	/^let g:ale_echo_msg_error_str = ''$/;"	v
+g:ale_echo_msg_format	archlinux.vim	/^let g:ale_echo_msg_format = '[%linter%] %severity% %s'$/;"	v
+g:ale_echo_msg_warning_str	archlinux.vim	/^let g:ale_echo_msg_warning_str = ''$/;"	v
+g:ale_lint_on_enter	archlinux.vim	/^let g:ale_lint_on_enter = 1$/;"	v
+g:ale_linters	archlinux.vim	/^let g:ale_linters = { 'python': ['flake8'] }$/;"	v
+g:ale_python_auto_pipenv	archlinux.vim	/^let g:ale_python_auto_pipenv = 1$/;"	v
+g:ale_python_flake8_auto_pipenv	archlinux.vim	/^let g:ale_python_flake8_auto_pipenv = 1$/;"	v
+g:ale_python_flake8_change_directory	archlinux.vim	/^let g:ale_python_flake8_change_directory = 1$/;"	v
+g:ale_python_flake8_executable	archlinux.vim	/^let g:ale_python_flake8_executable = 'flake8'$/;"	v
+g:ale_python_flake8_options	archlinux.vim	/^let g:ale_python_flake8_options = ''$/;"	v
+g:ale_python_flake8_use_global	archlinux.vim	/^let g:ale_python_flake8_use_global = 1$/;"	v
+g:ale_sign_column_always	archlinux.vim	/^let g:ale_sign_column_always = 1$/;"	v
+g:ale_sign_error	archlinux.vim	/^let g:ale_sign_error = ''$/;"	v
+g:ale_sign_info	archlinux.vim	/^let g:ale_sign_info = ''$/;"	v
+g:ale_sign_warning	archlinux.vim	/^let g:ale_sign_warning = ''$/;"	v
+g:settedLocale	archlinux.vim	/^    let g:settedLocale = currentLocale$/;"	v
+g:settedLocale	archlinux.vim	/^let g:settedLocale = 0$/;"	v
+g:sql_type_default	archlinux.vim	/^let g:sql_type_default = 'pgsql'$/;"	v
+getPrice	polybar_crypto.py	/^def getPrice(pair):$/;"	f
+hostname	archlinux.vim	/^let hostname=system('hostname -s | tr -d "\\n"')$/;"	v
+j	archlinux.vim	/^nnoremap j gj$/;"	m
+k	archlinux.vim	/^nnoremap k gk$/;"	m
+mapleader	archlinux.vim	/^let mapleader = ','$/;"	v
+p	archlinux.vim	/^vnoremap p "_xP$/;"	m
+x	archlinux.vim	/^vnoremap x "_x$/;"	m
+л	archlinux.vim	/^nnoremap л gk$/;"	m
+о	archlinux.vim	/^nnoremap о gj$/;"	m
